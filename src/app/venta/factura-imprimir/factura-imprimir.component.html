@@ -1,0 +1,95 @@
+<youpez-content-simple >
+    <div fxLayout="row wrap">
+      <div fxFlex="100%" fxFlex.gt-md="60%">
+        <div class="flex justify-between pb-4">
+
+        </div>
+        <div class="app-card app-card--m-0 app-card--p-0">
+          <div class="app-card__content">
+            <div ngClass.gt-sm="p-10" ngClass.lt-sm="p-5" ngClass.sm="p-5">
+              <div class="flex justify-between mb-20">
+                
+                <div class="text-right">
+                  <div class="app-productive-heading-04 mb-1">FACTURA</div>
+                  <div class="app-productive-heading-03">FACT-000000{{detalleFactura?.id}}</div>
+                </div>
+              </div>
+              <div class="flex mb-10">
+                <div class="app-body-short-01 mr-8">
+                  <div class="app-helper-text-01 mb-2 uppercase">Vendido por</div>
+                  <div class="mb-1 font-bold">{{detalleFactura?.usuario}}</div>
+                  
+                </div>
+                <div class="app-body-short-01">
+                  <div class="app-helper-text-01 mb-2 uppercase">Comprador</div>
+                  <div class="mb-1 font-bold">{{detalleFactura?.cliente}}</div>
+                  <div class="mb-1">{{detalleFactura?.direccion_cliente}}</div>
+                  
+                  <div>Telefono:{{detalleFactura?.c_telefono}}</div>
+                </div>
+              </div>
+  
+              <div class=" mb-16">
+                <div class="app-body-short-01">
+                  <table>
+                    <tr class="font-bold">
+                      <td class="mr-6">Numero de factura </td>
+                      <td class="ml-5">FACT-000000{{detalleFactura?.id}}</td>
+                    </tr>
+                    <tr>
+                      <td class="mr-6">Fecha de factura</td>
+                      <td class="ml-5">{{detalleFactura?.fecha}}</td>
+                    </tr>
+                   
+                  </table>
+                </div>
+              </div>
+  
+  
+              <table class="app-table mb-32 w-full">
+                <thead>
+                <tr class="app-body-short-01 app-table__header">
+                  <th class="pr-4 py-2 text-left font-bold">Articulo</th>
+                  <th class="px-4 py-2 whitespace-no-wrap text-center font-bold">Costo unitario</th>
+                  <th class="px-4 py-2 text-center font-bold">Cantidad</th>
+                  <th class="px-4 py-2 text-center font-bold">IVA</th>
+                  <th class="pl-4 py-2 whitespace-no-wrap text-right font-bold">Total linea</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="app-body-short-01 app-table__row" *ngFor="let item of lineasDetalle">
+                  <td class="border pr-4 py-2 text-left">{{item?.producto}}</td>
+                  <td class="border px-4 py-2 text-center">C$ {{item?.precio}}</td>
+                  <td class="border px-4 py-2 text-center">{{item?.cantidad}}</td>
+                  <td class="border px-4 py-2 text-center">C$ {{item?.iva}}</td>
+                  <td class="border pl-4 py-2 text-right">C$ {{item?.total}}</td>
+                </tr>
+              
+                <tr class="app-body-short-01">
+                  <td class="border px-4 py-2 text-right font-bold" colspan="4">Sub total</td>
+                  <td class="border pl-4 py-2 text-right"> C$ {{detalleFactura?.subtotal}}</td>
+                </tr>
+                <tr class="app-body-short-01">
+                  <td class="border px-4 py-2 text-right font-bold" colspan="4">IVA</td>
+                  <td class="border pl-4 py-2 text-right"> C$ {{detalleFactura?.iva}}</td>
+                </tr>
+                <tr class="app-body-short-01">
+                  <td class="border px-4 py-2 text-right font-bold" colspan="4">Descuento</td>
+                  <td class="border pl-4 py-2 text-right"> C$ -0 {{detalleFactura?.descuento}}</td>
+                </tr>
+                <tr class="app-body-short-02">
+                  <td class="border px-4 py-2 text-right font-bold" colspan="4">TOTAL</td>
+                  <td class="border pl-4 py-2 text-right app-productive-heading-03 font-bold">C$ {{detalleFactura?.total}}</td>
+                </tr>
+                </tbody>
+              </table>
+  
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </youpez-content-simple>
+  

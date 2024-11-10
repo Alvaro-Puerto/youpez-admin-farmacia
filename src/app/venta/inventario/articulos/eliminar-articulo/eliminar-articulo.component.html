@@ -1,0 +1,32 @@
+<div fxFill fxLayout="column" class="app-bg-container overflow-hidden">
+    <div class="px-4 py-4 flex items-center">
+      <div>
+        <div class="app-productive-heading-03 font-bold">Eliminar articulo</div>
+
+      </div>
+      <div class="flex-1 flex justify-end">
+        <button (click)="onClose()" ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+          <svg class="bx--btn__icon" ibmIconClose size="32"></svg>
+        </button>
+      </div>
+    </div>
+    <div fxFlex class="mt-4">
+        <div class="flex justify-center mt-4">
+            <div class="app-productive-heading-03 font-bold mt-4">Seguro que desea eliminar este registro?</div>   
+          </div>
+    </div>
+    <div class="px-4 py-4 flex justify-end app-border-t">
+      <button (click)="onClose()"
+              ibmButton="ghost"
+              size="field"
+              class="mr-1">
+        Cerrar
+        
+      </button>
+      <button ibmButton="danger" size="field" (click)="onSubmit()">
+        Eliminar 
+        <svg class="bx--btn__icon" ibmIconSend size="20"></svg>
+      </button>
+    </div>
+  </div>
+  

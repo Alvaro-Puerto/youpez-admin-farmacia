@@ -1,0 +1,226 @@
+<div fxFill fxLayout="column" class="app-bg-container overflow-hidden">
+    <div class="px-4 py-4 flex items-center">
+      <div>
+        <div class="app-productive-heading-03 font-bold">Nuevo articulo</div>
+
+      </div>
+      <div class="flex-1 flex justify-end">
+        <button (click)="onClose()" ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+          <svg class="bx--btn__icon" ibmIconClose size="32"></svg>
+        </button>
+      </div>
+    </div>
+    <div fxFlex>
+        <form [formGroup]="formGroup">
+            <div class="app-content app-content--default">
+                <ibm-tab-header-group
+                    [type]="'line'"
+                    [followFocus]="true"
+                    [cacheActive]="false"
+                    [isNavigation]="true">
+                    <ibm-tab-header ibmTabHeader [paneReference]="content1">
+                        Informacion general
+                    </ibm-tab-header>
+                    <ibm-tab-header ibmTabHeader [paneReference]="content2" >
+                        Valores referenciales
+                    </ibm-tab-header>
+                    <ibm-tab-header ibmTabHeader [paneReference]="content3">
+                        Usuario y Seguimiento
+                    </ibm-tab-header>
+                    
+                </ibm-tab-header-group>
+
+                <ibm-tab #content1>
+                    <div class="app-form p-4">
+                        <div fxLayout="row wrap" class="app-form__row">
+                            <div fxFlex="50%"   class="app-form__item mt-4 mb-4">
+                            <div class="app-input">
+                               
+                                <ibm-label
+                                [invalidText]="'This field is required or incorrect'"
+                                >
+                                Prefijo
+                                <input
+                                    type="text"                      
+                                    ibmText
+                                    formControlName="Prefijo"
+                                    size="md"          
+                                    theme="light"             
+                                    [autocomplete]="true">
+                                </ibm-label>
+                            </div>
+                            </div>
+                            <div fxFlex="50%"   class="app-form__item mt-4 mb-4">
+                                <div class="app-input">
+                              
+                                <ibm-label
+                                    [invalidText]="'This field is required or incorrect'"
+                                    >
+                                    Descripcion
+                                    <input
+                                    type="text"                      
+                                    ibmText
+                                    theme="light"
+                                    size="md"
+                                    formControlName="Descripcion"                     
+                                    [autocomplete]="false">
+                                </ibm-label>
+                                </div>
+                            </div>
+                            <div fxFlex="33.33%"   class="app-form__item mt-4 mb-4">
+                                <div class="app-input">
+                                
+                                <ibm-label
+                                    [invalidText]="'This field is required or incorrect'"
+                                    >
+                                    Valor Inicial
+                                    <input
+                                    type="number"  
+                                    formControlName="ValorInicial"                    
+                                    ibmText
+                                    size="md"
+                                    theme="light"
+                                                    
+                                    [autocomplete]="true">
+                                </ibm-label>
+                                </div>
+                            </div>
+                            <div fxFlex="33.33%"   class="app-form__item mt-4 mb-4">
+                                <div class="app-input">
+                                
+                                <ibm-label
+                                    [invalidText]="'This field is required or incorrect'"
+                                    >
+                                    Valor Final
+                                    <input
+                                    type="number"  
+                                    formControlName="ValorFinal"                    
+                                    ibmText
+                                    size="md"
+                                    theme="light"         
+                                    [autocomplete]="true">
+                                </ibm-label>
+                                </div>
+                            </div>
+                            <div fxFlex="33.33%"   class="app-form__item mt-4 mb-4">
+                                <div class="app-input">
+                                
+                                <ibm-label
+                                    [invalidText]="'This field is required or incorrect'"
+                                    >
+                                    Valor Actual
+                                    <input
+                                    type="number"  
+                                    formControlName="ValorActual"                    
+                                    ibmText
+                                    size="md"
+                                    theme="light"       
+                                    [autocomplete]="true">
+                                </ibm-label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ibm-tab>
+                <ibm-tab #content2>
+                    <div class="app-cards-vertical-merge">
+                        <div class="app-card">
+                          <div class="app-card__content">
+                            <div fxLayout="row wrap">
+                              <div fxFlex="100%" fxFlex.gt-md="30%">
+                                <div class="app-productive-heading-02">Referencia 1</div>
+                              </div>
+                              <div fxFlex="100%" fxFlex.gt-md="70%">
+                                <input
+                                  value=""
+                                  ibmText
+                                  size="md"
+                                  theme="light">
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="app-card">
+                          <div class="app-card__content">
+                            <div fxLayout="row wrap">
+                              <div fxFlex="100%" fxFlex.gt-md="30%">
+                                <div class="app-productive-heading-02">Referencia 2</div>
+                              </div>
+                              <div fxFlex="100%" fxFlex.gt-md="70%">
+                                <input
+                                  ibmText
+                              
+                                  size="md"
+                                  theme="light">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="app-card">
+                          <div class="app-card__content">
+                            <div fxLayout="row wrap">
+                              <div fxFlex="100%" fxFlex.gt-md="30%">
+                                <div class="app-productive-heading-02">Referencia 3</div>
+                              </div>
+                              <div fxFlex="100%" fxFlex.gt-md="70%">
+                                <input
+                                  ibmText
+                                
+                                  size="md"
+                                  theme="light">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                
+                        <div class="app-card">
+                          <div class="app-card__content">
+                            <div fxLayout="row wrap">
+                              <div fxFlex="100%" fxFlex.gt-md="30%">
+                                <div class="app-productive-heading-02">Referencia 4</div>
+                              </div>
+                              <div fxFlex="100%" fxFlex.gt-md="70%">
+                                <input
+                                  ibmText
+                                 
+                                  size="md"
+                                  theme="light">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </ibm-tab>
+                <ibm-tab #content3>
+                    Tab Content 3
+                </ibm-tab>
+                <ibm-tab #content4>
+                    Tab Content 4
+                </ibm-tab>
+                <ibm-tab #content5>
+                    Tab Content 5
+                </ibm-tab>
+            
+            
+            </div>
+        </form>
+    </div>
+    <div class="px-4 py-4 flex justify-end app-border-t">
+      <button (click)="onClose()"
+              ibmButton="ghost"
+              size="field"
+              class="mr-1">
+        Cancelar
+        <svg class="bx--btn__icon" ibmIconTrashCan size="20"></svg>
+      </button>
+      <button ibmButton="primary" size="field" (click)="submit()">
+        Guardar
+        <svg class="bx--btn__icon" ibmIconSend size="20"></svg>
+      </button>
+    </div>
+  </div>
+  

@@ -1,0 +1,204 @@
+<div fxFill fxLayout="column" class="app-bg-container overflow-hidden">
+    <div class="px-4 py-4 flex items-center">
+      <div>
+        <div class="app-productive-heading-03 font-bold">Editar cliente</div>
+
+      </div>
+      <div class="flex-1 flex justify-end">
+        <button (click)="onClose()" ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+          <svg class="bx--btn__icon" ibmIconClose size="32"></svg>
+        </button>
+      </div>
+    </div>
+    <div fxFlex >
+      <div class="app-content app-content--default"  [formGroup]="formGroup">
+        <ibm-tab-header-group
+          [type]="'line'"
+          [followFocus]="true"
+          [cacheActive]="false"
+          [isNavigation]="true">
+          <ibm-tab-header ibmTabHeader [paneReference]="content1">
+            Informacion general              
+          </ibm-tab-header>
+          <ibm-tab-header ibmTabHeader [paneReference]="content2">
+            Referencia
+          </ibm-tab-header>	
+          <ibm-tab-header ibmTabHeader [paneReference]="content4">
+            Usuario y Seguimiento
+          </ibm-tab-header>		
+		    </ibm-tab-header-group>
+        <ibm-tab #content1>
+                <div class="app-form p-4">
+                    <div fxLayout="row wrap" class="app-form__row">
+                        <div fxFlex="50%"   class="app-form__item">
+                          <div class="app-input">
+                            <ibm-label
+                              [invalidText]="'Este campo es requerido'"
+                              >
+                              Nombres
+                              <input
+                                type="text"                      
+                                ibmText
+                                size="md"   
+                                formControlName="nombres"                    
+                                [autocomplete]="true">
+                            </ibm-label>
+                            <div *ngIf="formGroup.controls['nombres'].invalid && (formGroup.controls['nombres'].dirty || formGroup.controls['nombres'].touched)">
+                                <div *ngIf="formGroup.controls['nombres'].errors.required">
+                                    <ibm-label
+                                        [invalidText]="'Este campo es requerido'"
+                                        [invalid]="true"
+                                    ></ibm-label>
+                                </div>
+                                <div *ngIf="formGroup.controls['nombres'].errors.email">
+                                    <ibm-label
+                                        [invalidText]="'El formato no es correcto '"
+                                        [invalid]="true"
+                                    ></ibm-label>
+                                </div>   
+                              </div>
+                          </div>
+                        </div>
+                        <div fxFlex="50%"   class="app-form__item">
+                            <div class="app-input">
+                              <ibm-label
+                                [invalidText]="'Este campo es requerido'"
+                                >
+                                Apellidos
+                                <input
+                                  type="text"                      
+                                  ibmText
+                                  size="md"   
+                                  formControlName="apellidos"                    
+                                  [autocomplete]="true">
+                              </ibm-label>
+                              <div *ngIf="formGroup.controls['apellidos'].invalid && (formGroup.controls['apellidos'].dirty || formGroup.controls['apellidos'].touched)">
+                                  <div *ngIf="formGroup.controls['apellidos'].errors.required">
+                                      <ibm-label
+                                          [invalidText]="'Este campo es requerido'"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>
+                                  <div *ngIf="formGroup.controls['apellidos'].errors.email">
+                                      <ibm-label
+                                          [invalidText]="'El formato no es correcto '"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>   
+                                </div>
+                            </div>
+                        </div>
+                        <div fxFlex="50%"   class="app-form__item">
+                            <div class="app-input">
+                              <ibm-label
+                                [invalidText]="'Este campo es requerido'"
+                                >
+                                Email
+                                <input
+                                  type="text"                      
+                                  ibmText
+                                  size="md"   
+                                  formControlName="email"                    
+                                  [autocomplete]="true">
+                              </ibm-label>
+                              <div *ngIf="formGroup.controls['email'].invalid && (formGroup.controls['email'].dirty || formGroup.controls['email'].touched)">
+                                  <div *ngIf="formGroup.controls['email'].errors.required">
+                                      <ibm-label
+                                          [invalidText]="'Este campo es requerido'"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>
+                                  <div *ngIf="formGroup.controls['email'].errors.email">
+                                      <ibm-label
+                                          [invalidText]="'El formato no es correcto '"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>   
+                                </div>
+                            </div>
+                        </div>
+                        <div fxFlex="50%"   class="app-form__item">
+                            <div class="app-input">
+                              <ibm-label
+                                [invalidText]="'Este campo es requerido'"
+                                >
+                                Telefono
+                                <input
+                                  type="text"                      
+                                  ibmText
+                                  size="md"   
+                                  formControlName="telefono"                    
+                                  [autocomplete]="true">
+                              </ibm-label>
+                              <div *ngIf="formGroup.controls['telefono'].invalid && (formGroup.controls['telefono'].dirty || formGroup.controls['telefono'].touched)">
+                                  <div *ngIf="formGroup.controls['telefono'].errors.required">
+                                      <ibm-label
+                                          [invalidText]="'Este campo es requerido'"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>
+                                  <div *ngIf="formGroup.controls['telefono'].errors.email">
+                                      <ibm-label
+                                          [invalidText]="'El formato no es correcto '"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>   
+                                </div>
+                            </div>
+                        </div>
+                        <div fxFlex="100%"   class="app-form__item">
+                            <div class="app-input">
+                              <ibm-label
+                                [invalidText]="'Este campo es requerido'"
+                                >
+                                Direccion
+                                <input
+                                  type="text"                      
+                                  ibmText
+                                  size="md"   
+                                  formControlName="direccion"                    
+                                  [autocomplete]="true">
+                              </ibm-label>
+                              <div *ngIf="formGroup.controls['direccion'].invalid && (formGroup.controls['direccion'].dirty || formGroup.controls['direccion'].touched)">
+                                  <div *ngIf="formGroup.controls['direccion'].errors.required">
+                                      <ibm-label
+                                          [invalidText]="'Este campo es requerido'"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>
+                                  <div *ngIf="formGroup.controls['direccion'].errors.email">
+                                      <ibm-label
+                                          [invalidText]="'El formato no es correcto '"
+                                          [invalid]="true"
+                                      ></ibm-label>
+                                  </div>   
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+        </ibm-tab>
+        <ibm-tab #content2>
+            <app-form-ref></app-form-ref>
+        </ibm-tab> 
+        <ibm-tab #content4>
+            <app-valores-auditoria></app-valores-auditoria>
+           
+        </ibm-tab> 
+      </div>
+    </div>
+    <div class="px-4 py-4 flex justify-end app-border-t">
+      <button (click)="onClose()"
+              ibmButton="ghost"
+              size="field"
+              class="mr-1">
+        Cerrar
+        
+      </button>
+      <button ibmButton="primary" size="field" (click)="onSubmit()">
+        Guardar 
+        <svg class="bx--btn__icon" ibmIconSend size="20"></svg>
+      </button>
+    </div>
+  </div>
+  

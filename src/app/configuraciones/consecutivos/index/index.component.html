@@ -1,0 +1,71 @@
+<div fxFill fxLayout="column">
+    <youpez-header>
+      <youpez-header-title>
+        Administracion de Consecutivos
+      </youpez-header-title>
+      <youpez-header-tools>
+        <!--
+          <button ibmButton="primary" size="sm">
+            Nuevo articulo
+            <svg class="bx--btn__icon" ibmIconCheckmarkOutline size="20"></svg>
+          </button>
+        -->
+       
+      </youpez-header-tools>
+    </youpez-header>
+    <div fxFlex class="relative">
+      <youpez-sidenav-container panel="solid">
+        <ibm-table-container class="p-5">
+          <ibm-table-toolbar
+            [model]="model"
+            [batchText]="batchText"
+            [size]="size"
+            #toolbar>
+            <ibm-table-toolbar-actions>
+              <button ibmButton="danger" [tabindex]="toolbar.selected ? 0 : -1">
+                Inactivar
+                <youpez-ibm-icon iconName="trashCan" iconSize="16" class="bx--btn__icon"></youpez-ibm-icon>
+              </button>
+              <button ibmButton="success" [tabindex]="toolbar.selected ? 0 : -1">
+                Detalles
+                <youpez-ibm-icon iconName="document" iconSize="16" class="bx--btn__icon"></youpez-ibm-icon>
+              </button>
+              <button ibmButton="warning" [tabindex]="toolbar.selected ? 0 : -1">
+                Editar
+                <youpez-ibm-icon iconName="download" iconSize="16" class="bx--btn__icon"></youpez-ibm-icon>
+              </button>
+            </ibm-table-toolbar-actions>
+            <ibm-table-toolbar-content>
+              <ibm-table-toolbar-search
+                ngDefaultControl
+                [expandable]="false">
+              </ibm-table-toolbar-search>
+              <button ibmButton="primary" size="sm" [tabindex]="toolbar.selected ? -1 : 0" (click)="nuevoConsecutivo()">
+                Nuevo Consecutivo
+                <ibm-icon-add size="20" class="bx--btn__icon"></ibm-icon-add>
+              </button>
+            </ibm-table-toolbar-content>
+          </ibm-table-toolbar>
+          <ibm-table-container class="mt-4">         
+            <ibm-table
+            [model]="model"
+            [size]="'md'"
+            [skeleton]="false"
+            [showSelectionColumn]="false"
+            [enableSingleSelect]="true"
+            [sortable]="true"
+            [stickyHeader]="true"
+            [striped]="true"
+            [isDataGrid]="true"
+            >
+            <ng-content></ng-content>
+            </ibm-table>
+          </ibm-table-container>
+          <ng-template #customTrigger>
+            <svg ibmIconSettings size="16"></svg>
+          </ng-template>
+        </ibm-table-container>
+      </youpez-sidenav-container>
+    </div>
+  </div>
+  

@@ -1,0 +1,217 @@
+<div fxFill fxLayout="column">
+    <youpez-header>
+      <youpez-header-title>
+        Administracion de bases de datos.
+      </youpez-header-title>
+      <youpez-header-tools>
+      </youpez-header-tools>
+    </youpez-header>
+      <div fxFlex="100%" class="relative" >     
+          <div fxFlex="100%">
+            <youpez-sidenav-container panel="solid" >
+              <div id="targetBackup"></div>
+              <div fxLayout="row wrap" class="mt-5">
+               <!--
+                <div fxFlex="100%" fxFlex.gt-md="100%">
+                  <div class="app-card">
+                    <div class="app-card__tool">
+                      <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                        <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+                      </button>
+                      <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                        <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+                      </button>
+                    </div>
+                    <div class="app-card__header">
+                      <div class="app-row app-row--center">
+                        <div class="app-symbol mr-3">
+                          <div
+                            class="app-symbol__label w-10 h-10 app-expressive-heading-01 app-text-contrast app-bg-success-lt-50 rounded">
+                            K8S
+                          </div>
+                        </div>
+                        <div>
+                          <div class="app-expressive-heading-02">Kubernetes cluster</div>
+                          <div class="app-label-01">Cloud environment</div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <div fxLayout="row wrap" class="app-card__blocks app-border-t">
+                      <div fxFlex="100%" fxFlex.gt-md="100%" class="app-card__block">
+                        <div class="flex justify-between">
+                          <div>
+                            <div class="app-productive-heading-03">Node #1</div>
+                            <div class="app-label-01">region: EU</div>
+                          </div>
+                          <div class="app-row app-row--center app-color-success">
+                            <span class="mr-1">Healthy</span>
+                            <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+                          </div>
+          
+                        </div>
+          
+                        <div class="mt-5 mb-1">
+                          <span class="app-productive-heading-05 mr-2">2,333</span>
+                          <span class="app-productive-heading-02">users</span>
+                        </div>
+                        <div class="app-productive-heading-01 mb-2">Workload</div>
+                      
+                        <div class="">
+                          <div fxLayout="row wrap" class="text-center">
+                            <div fxFlex="50%">
+                              <div class="app-label-01">Volume</div>
+                              <div class="app-productive-heading-03">6.36 TB</div>
+                              <div class="app-productive-heading-02">19%</div>
+                            </div>
+                            <div fxFlex="50%">
+                              <div class="app-label-01">Volume</div>
+                              <div class="app-productive-heading-03">5.17 TB</div>
+                              <div class="app-productive-heading-02">59%</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center mt-4">
+                          <button ibmButton="tertiary" size="sm">
+                            SSH
+                            <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div fxFlex="100%" fxFlex.gt-md="33.33%" class="app-card__block">
+                        <div class="flex justify-between">
+                          <div>
+                            <div class="app-productive-heading-03">Node #2</div>
+                            <div class="app-label-01">region: EU</div>
+                          </div>
+                          <div class="app-row app-row--center app-color-success">
+                            <span class="mr-1">Healthy</span>
+                            <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+                          </div>
+          
+                        </div>
+          
+                        <div class="mt-5 mb-1">
+                          <span class="app-productive-heading-05 mr-2">1,133</span>
+                          <span class="app-productive-heading-02">users</span>
+                        </div>
+                        <div class="app-productive-heading-01 mb-2">Workload</div>
+                      
+                        <div class="">
+                          <div fxLayout="row wrap" class="text-center">
+                            <div fxFlex="50%">
+                              <div class="app-label-01">Volume</div>
+                              <div class="app-productive-heading-03">9.37 TB</div>
+                              <div class="app-productive-heading-02">31%</div>
+                            </div>
+                            <div fxFlex="50%">
+                              <div class="app-label-01">Volume</div>
+                              <div class="app-productive-heading-03">0.37 TB</div>
+                              <div class="app-productive-heading-02">11%</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center mt-4">
+                          <button ibmButton="tertiary" size="sm">
+                            SSH
+                            <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div fxFlex="100%" fxFlex.gt-md="33.33%" class="app-card__block">
+                        <div class="flex justify-between">
+                          <div>
+                            <div class="app-productive-heading-03">Node #3</div>
+                            <div class="app-label-01">region: EU</div>
+                          </div>
+                          <div class="app-row app-row--center app-color-success">
+                            <span class="mr-1">Healthy</span>
+                            <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+                          </div>
+                        </div>
+                        <div class="mt-5 mb-1">
+                          <span class="app-productive-heading-05 mr-2">4,105</span>
+                          <span class="app-productive-heading-02">users</span>
+                        </div>
+                        <div class="app-productive-heading-01 mb-2">Workload</div>
+                       
+                        <div class="">
+                          <div fxLayout="row wrap" class="text-center">
+                            <div fxFlex="50%">
+                              <div class="app-label-01">Volume</div>
+                              <div class="app-productive-heading-03">2.37 TB</div>
+                              <div class="app-productive-heading-02">67%</div>
+                            </div>
+                            <div fxFlex="50%">
+                              <div class="app-label-01">Volume</div>
+                              <div class="app-productive-heading-03">1.17 TB</div>
+                              <div class="app-productive-heading-02">55%</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center mt-4">
+                          <button ibmButton="tertiary" size="sm">
+                            SSH
+                            <svg class="bx--btn__icon" ibmIconArrowRight size="20"></svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              -->
+              </div>
+              <div fxLayout="row wrap" class="flex  w-full justify-center items-center">
+                <div fxFlex="80%">
+                  <div fxFill fxLayout="column" class="app-bg-container relative mt-5 pt-5">
+                    <ibm-tab-header-group class="app-ibm-tab-auto">
+                      <ibm-tab-header>
+                        Respaldos generados
+                      </ibm-tab-header>
+                      
+                    </ibm-tab-header-group>
+            
+                    <div class="absolute top-0 right-0">
+                     
+                      <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                        <svg class="bx--btn__icon" ibmIconMinimize size="32"></svg>
+                      </button>
+                    </div>
+            
+                    <div class="p-2 flex">
+                    
+                      <div class="mr-2" style="width:500px">
+                        <ibm-search placeholder="Search..." size="sm" theme="light"></ibm-search>
+                      </div>
+                      <div class="flex flex-1 justify-end">
+                        <div class="app-ibm-btn-merge mr-1">
+                          <button ibmButton="tertiary" size="sm" (click)="excel()">
+                           Excel
+                            
+                          </button>
+                          <button ibmButton="tertiary" style="background-color: #d1ce05;" size="sm" class="bx--btn--icon-only" (click)="restauraBasesDeDatos()">
+                            Restaurar 
+                            <svg class="bx--btn__icon" ibmIconEdit size="32"></svg>
+                          </button>
+                        </div>
+                        <button ibmButton="tertiary" size="sm" (click)="backups()">
+                          Generar nuevo backup
+                          <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                      </div>
+                    </div>
+            
+                    <div fxFlex fxFill class="relative">
+                      <ng-container >
+                        <div id="grid-backup" style="width: 96%; max-width: 96%;"></div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </youpez-sidenav-container>
+          </div>
+      </div>      
+  </div>
+  
+  

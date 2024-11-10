@@ -1,0 +1,101 @@
+<div fxFill fxLayout="column">
+    <youpez-header>
+      <youpez-header-title>
+        Administracion de clientes 
+      </youpez-header-title>
+      <youpez-header-tools>
+      </youpez-header-tools>
+    </youpez-header>
+      <div fxFlex="100%" class="relative" >     
+          <div fxFlex="100%">
+            <youpez-sidenav-container panel="solid" >
+              <div fxLayout="row wrap" class="mt-5">
+              
+              </div>
+              <div fxLayout="row wrap" class="flex w-full justify-center items-center">
+                <div fxFlex="90%">
+                  <div fxFill fxLayout="column" class="app-bg-container relative">
+                    <ibm-tab-header-group class="app-ibm-tab-auto">
+                      <ibm-tab-header>
+                        Clientes disponibles
+                      </ibm-tab-header>
+                      
+                    </ibm-tab-header-group>
+            
+                    <div class="absolute top-0 right-0">
+                     
+                      <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                        <svg class="bx--btn__icon" ibmIconMinimize size="32"></svg>
+                      </button>
+                    </div>
+            
+                    <div class="p-2 flex">
+                      <!--
+                      <div class="app-ibm-btn-merge mr-2">
+                        <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                          <svg class="bx--btn__icon" ibmIconRenew size="32"></svg>
+                        </button>
+                        <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+                          <svg class="bx--btn__icon" ibmIconOverflowMenuVertical size="32"></svg>
+                        </button>
+                      </div>
+                      -->
+            
+                      <div class="mr-2" style="width:500px">
+                        <ibm-search placeholder="Search..." size="sm" theme="light"></ibm-search>
+                      </div>
+                      <!--
+                      <button ibmButton="primary" size="sm" (click)="crearRol()">
+                        Nuevo rol
+                        <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                      </button>
+                      -->
+                
+            
+                      <div class="flex flex-1 justify-end">
+                        <div class="app-ibm-btn-merge mr-1">
+                          <button 
+                          ibmButton="tertiary" size="sm"
+                          (click)="excel()"
+                          class="bx--btn--icon">
+                           Excel
+                        
+                        </button>
+                        <button [disabled]="clienteSeleccionado == null || eliminar" (click)="reporte()"
+                        ibmButton="danger" size="sm"
+                        class="bx--btn--icon">
+                        Ver reporte
+                        <svg class="bx--btn__icon" ibmIconTrashCan size="32"></svg>
+                      </button>
+                          <button [disabled]="clienteSeleccionado == null || eliminar" (click)="eliminarRol()"
+                            ibmButton="danger" size="sm"
+                            class="bx--btn--icon">
+                            Eliminar
+                            <svg class="bx--btn__icon" ibmIconTrashCan size="32"></svg>
+                          </button>
+                          <button ibmButton="tertiary" (click)="editarRol()" style="background-color: #d1ce05;" size="sm" class="bx--btn--icon-only" [disabled]="clienteSeleccionado == null || editar">
+                            Editar 
+                            <svg class="bx--btn__icon" ibmIconEdit size="32"></svg>
+                          </button>
+                        </div>
+                        <button ibmButton="tertiary" size="sm" (click)="crearRol()" [disabled]="crear">
+                          Nuevo Cliente
+                          <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                      </div>
+                    </div>
+            
+                    <div fxFlex fxFill class="relative">
+                      <ng-container >
+                        <div id="grid-clientes" style="width: 96%; max-width: 96%;"></div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </youpez-sidenav-container>
+          </div>
+      </div>      
+  </div>
+  
+  

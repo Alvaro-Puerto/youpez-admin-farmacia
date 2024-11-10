@@ -1,0 +1,115 @@
+<youpez-sidenav-container>
+  <div fxFlex="100%" fxFlex.gt-md="100%">
+    <div class="app-card">
+      <div class="app-card__tool">
+        <button ibmButton="tertiary" size="sm" class="bx--btn--icon-only">
+          <svg class="bx--btn__icon" ibmArrowUp size="32"></svg>
+        </button>
+       
+      </div>
+      <div class="app-card__header">
+        <div class="app-row app-row--center">
+          <div class="app-symbol mr-3">
+            <div
+              class="app-symbol__label w-10 h-10 app-expressive-heading-01 app-text-contrast app-bg-success-lt-50 rounded">
+              {{rolDetalle?.id}}
+            </div>
+          </div>
+          <div>
+            <div class="app-expressive-heading-02">{{rolDetalle?.name}}</div>
+            <div class="app-label-01">Administracion de roles</div>
+          </div>
+        </div>
+      </div>    
+      <div fxLayout="row wrap" class="app-card__blocks app-border-t">
+        <div fxFlex="50%" fxFlex.gt-md="50%" class="app-card__block">
+          <div class="flex justify-between">
+            <div>
+              <div class="app-productive-heading-03">Estadistica por permisos</div>           
+            </div>
+            <div class="app-row app-row--center app-color-success">
+              <span class="mr-1">Activo</span>
+              <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+            </div>
+          </div>
+          <div class="mt-5 mb-1">
+            <span class="app-productive-heading-05 mr-2"> 0/{{permisosDisponibles?.length}}</span>
+            <span class="app-productive-heading-02">Permisos</span>
+          </div>
+          <div class="app-productive-heading-01 mb-2">Permisos Asignados</div>
+        </div>
+        <div fxFlex="50%" fxFlex.gt-md="50%" class="app-card__block">
+          <div class="flex justify-between">
+            <div>
+              <div class="app-productive-heading-03">Estadistica por usuario</div>
+            </div>
+            <div class="app-row app-row--center app-color-success">
+              <span class="mr-1">Activo</span>
+              <youpez-ibm-icon iconName="checkMarkOutline" iconSize="32"></youpez-ibm-icon>
+            </div>
+          </div>
+          <div class="mt-5 mb-1">
+            <span class="app-productive-heading-05 mr-2">0/0</span>
+            <span class="app-productive-heading-02">Usuarios asignado a este rol</span>
+          </div>
+          <div class="app-productive-heading-01 mb-2">Usuarios</div>
+        </div>        
+        <div fxFlex="100%" >
+          <div class="app-content app-content--default" >
+            <ibm-tab-header-group
+              [type]="'line'"
+              [followFocus]="true"
+              [cacheActive]="false"
+              [isNavigation]="true">
+              <ibm-tab-header ibmTabHeader [paneReference]="content1" (click)="crearGrid()">
+                Permisos          
+              </ibm-tab-header>
+              <ibm-tab-header ibmTabHeader [paneReference]="content4" (click)="obtenerUsuariosRol()">
+                Usuario
+              </ibm-tab-header>		
+            </ibm-tab-header-group>
+            <ibm-tab #content1>
+              <div fxLayout="row wrap">
+                <div fxFlex="62%">
+                  <div class="app-form p-4">
+                    <div class="mt-4 mb-5 flex-1 flex justify-end">                
+                      <div class="mr-2" style="width:500px">
+                        <ibm-search placeholder="Search..." size="sm" theme="light"></ibm-search>
+                      </div>                  
+                    </div>
+                    <div id="grid-permisos"></div>        
+                  </div>
+                </div>
+                <div fxFlex="38%" style="background-color: rgb(255, 255, 255);"></div>
+              </div>
+            </ibm-tab>
+            <ibm-tab #content2>
+              <div class="app-form p-4">
+                <div class="p-2 flex">               
+                  <div class="mr-2" style="width:500px">
+                    <ibm-search placeholder="Search..." size="sm" theme="light"></ibm-search>
+                  </div>                  
+                </div>
+                <app-permiso></app-permiso>         
+              </div>
+            </ibm-tab>
+            <ibm-tab #content4>
+              <div fxLayout="row wrap">
+                <div fxFlex="62%">
+                  <div class="app-form p-4">
+                    <div class="mt-4 mb-5 flex-1 flex justify-end">                
+                      <div class="mr-2" style="width:500px">
+                        <ibm-search placeholder="Search..." size="sm" theme="light"></ibm-search>
+                      </div>                  
+                    </div>               
+                    <div id="grid-usuarios"></div>        
+                    </div>
+                </div>
+              </div>
+            </ibm-tab> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</youpez-sidenav-container>

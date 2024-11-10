@@ -1,0 +1,84 @@
+<youpez-sidenav-container>
+    <div fxFlex="70%" fxFlex.gt-md="70%">
+      <div class="app-card">
+        <youpez-header>
+          <youpez-header-title>
+            Reporte por unidad de medida 
+          </youpez-header-title> 
+        </youpez-header>
+        <div fxLayout="row wrap p-4 m-5" class="app-card__blocks app-border-t mt-5 pt-5">
+          <div fxFlex="30%"> 
+            <div class="app-card app-card--bt-warning">
+                <div class="app-card__header">
+                  <div class="app-expressive-heading-03 mb-8">Items asociados</div>
+                  <div>
+                    <span class="app-expressive-heading-06 mr-2">{{total_articulos}}</span>
+                    <youpez-ibm-icon iconName="arrowDown" class="app-color-danger"></youpez-ibm-icon>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div fxFlex="70%">
+            <div fxLayout="row wrap ">
+              <div fxFlex="100%" style="margin-bottom: 20px;">
+                <div class="app-productive-heading-02">Unidad de medida</div>
+                <div class="app-productive-heading-01 mr-2">{{bodega?.nombre}}</div>           
+              </div>
+              <div fxFlex="100%" style="margin-bottom: 20px;">
+                <div class="app-productive-heading-02">Descripcion</div>
+                <div class="app-productive-heading-01 mr-2">{{bodega?.descripcion}}</div>            
+              </div> 
+              <div fxFlex="50%" style="margin-bottom: 20px;">
+                <div class="app-productive-heading-02">Abreviatura</div>
+                <div class="app-productive-heading-01 mr-2">{{bodega?.abreviatura}}</div>            
+              </div> 
+              
+            </div>
+          </div>
+          <div fxFlex="100%" class="p-4 d d-flex flex justify-end app-border-t app-border-b">
+           
+          </div>
+          <div fxFlex="100%" >
+            <div class="app-content app-content--default" >
+              <ibm-tab-header-group
+                [type]="'line'"
+                [followFocus]="true"
+                [cacheActive]="false"
+                [isNavigation]="true">
+                <ibm-tab-header ibmTabHeader [paneReference]="content1" >
+                  Productos asociados          
+                </ibm-tab-header>
+                		
+              </ibm-tab-header-group>
+              <ibm-tab #content1>
+                <div fxLayout="row wrap">
+                  <div fxFlex="100%">
+                    <div class="app-form p-4">
+                      <div class="mt-4 mb-5 flex-1 flex justify-end">                
+                        <button ibmButton="tertiary" size="sm" (click)="exportarVentas()">
+                          Exportar
+                          <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                       
+                      </div>
+                    </div>
+                    <div id="grid-articulo-um"></div>  
+                  </div>
+                </div>
+              </ibm-tab>
+              <ibm-tab #content2 >
+                <div class="app-form p-4">
+                  <div class="p-2 flex">               
+                                     
+                  </div>
+                           
+                </div>
+              </ibm-tab>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </youpez-sidenav-container>
+  

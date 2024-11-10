@@ -1,0 +1,78 @@
+<div fxFill fxLayout="column">
+    <youpez-header>
+      <youpez-header-title>
+        Administracion de Unidades de medidas 
+      </youpez-header-title> 
+    </youpez-header>
+    <div fxFlex="100%" class="relative" >     
+      <div fxFlex="100%">
+        <youpez-sidenav-container panel="solid" >
+          <div fxLayout="row wrap" class="flex w-full justify-center items-center mt-5">
+            <div fxFlex="95%">
+              <div fxFill fxLayout="column" class="app-bg-container relative mt-5">
+                <ibm-tab-header-group class="app-ibm-tab-auto">
+                  <ibm-tab-header>
+                    Unidades de medidas disponibles
+                  </ibm-tab-header>
+                </ibm-tab-header-group>
+                <div class="absolute top-0 right-0">
+                </div>   
+                <div class="p-2 flex mt-5 mb-5">          
+                  <div class="mr-2" style="width:500px">
+                    <ibm-search placeholder="Search..." size="sm" theme="light"></ibm-search>
+                  </div>
+                  <div class="flex flex-1 justify-end">
+                    <div class="app-ibm-btn-merge mr-1">
+                      <button
+                      ibmButton="tertiary" size="sm" size="sm"
+                      (click)="excel()"
+                      class="bx--btn--icon mr-5 ml-5">
+                      Excel
+                      <svg class="bx--btn__icon" ibmIconSettings size="32"></svg>
+                    </button>
+                      <button [disabled]="UMSeleccionado == null" (click)="reporte()"
+                      ibmButton="danger" size="sm"
+                      class="bx--btn--icon">
+                       Reportes
+                      <svg class="bx--btn__icon" ibmIconSettings size="32"></svg>
+                    </button>
+                      <button [disabled]="UMSeleccionado == null" (click)="eliminarUM()"
+                        ibmButton="danger" size="sm" 
+                        class="bx--btn--icon">
+                        Eliminar
+                        <svg class="bx--btn__icon" ibmIconTrashCan size="32"></svg>
+                      </button>
+                      <button ibmButton="tertiary" (click)="editarUM()" style="background-color: #d1ce05;" size="sm" class="bx--btn--icon-only" [disabled]="UMSeleccionado == null">
+                        Editar 
+                        <svg class="bx--btn__icon" ibmIconEdit size="32"></svg>
+                      </button>
+                    </div> 
+                    <button ibmButton="tertiary" size="sm" (click)="nuevoUM()">
+                      Nuevo UM
+                      <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                    </button>
+                  </div>
+                </div>
+        
+                <div fxFlex fxFill class="relative">
+                  <ng-container >
+                    <div id="grid-um" style="width: 96%; max-width: 96%;"></div>
+                  </ng-container>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </youpez-sidenav-container>
+      </div>
+  </div>      
+  </div>
+
+
+    
+  
+  <ng-template #dialogTemplate style="background-color: white; width: 800px; height: 700px;">
+    <div id="notificationHolderV" style="position: absolute;z-index:100000"></div>
+    <div class="" style="background-color: white; width: 800px; height: 700px;">
+      <div id="producto-um-r"></div>
+    </div>
+  </ng-template>

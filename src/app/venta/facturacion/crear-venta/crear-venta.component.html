@@ -1,0 +1,231 @@
+<youpez-sidenav-container>
+    <div fxFlex="70%" fxFlex.gt-md="70%">
+      <div class="app-card">
+        <youpez-header>
+          <youpez-header-title>
+            Nueva venta
+          </youpez-header-title> 
+        </youpez-header>
+        <div fxLayout="row wrap p-4 m-5" class="app-card__blocks app-border-t mt-5 pt-5" >
+          <div id="notificationHolderPP" style="position: absolute;z-index:100000"></div>
+            <div fxFlex="70%">
+                <div fxLayout="row wrap p-4 m-5">
+                    <div fxFlex="100%" class="p-4">
+                        <ibm-combo-box style="width: 500px;"
+                              [disabled]="false"
+                              [invalid]="false"
+                              [size]="'md'"
+                              [appendInline]="false"
+                              [invalidText]="''"
+                              [label]="'Seleccione el cliente'"
+                              [helperText]="''"
+                              (selected)="seleccionarCliente($event)"
+                              [items]="listarClientes"
+                              [theme]="'light'">
+                              <ibm-dropdown-list></ibm-dropdown-list>
+                            </ibm-combo-box>
+                        
+                      </div>
+                      <div fxFlex="100%" class="p-4">
+                        <ibm-combo-box style="width: 500px;"
+                              [disabled]="false"
+                              [invalid]="false"
+                              [size]="'md'"
+                              (selected)="seleccionarBodega($event)"
+                              [appendInline]="false"
+                              [invalidText]="''"
+                              [label]="'Seleccione la bodega'"
+                              [helperText]="''"
+                              [items]="listarBodegas"
+                              [theme]="'light'">
+                              <ibm-dropdown-list></ibm-dropdown-list>
+                            </ibm-combo-box>
+                        
+                      </div>
+                </div>
+                
+            </div>
+            <div fxFlex="30%">
+                <div class="flex  mb-4">
+                    <div class="app-productive-heading-03">Sub total: {{subtotal}}</div>
+                    
+                  </div>
+                  <div class="flex  mb-4">
+                    <div class="app-productive-heading-03">IVA: {{iva}}</div>
+ 
+                    
+                  </div>
+                  <div class="flex  mb-4">
+                    <div class="app-productive-heading-03">TOTAL: {{total}}</div>
+                    
+                  </div>
+            </div>
+          <div fxFlex="50%" class="p-4"></div>
+          <div fxFlex="50%" class="p-4">
+              <div class="flex justify-end">
+                <button ibmButton="tertiary" class="ml-5 mr-5" size="sm" (click)="openDialog(dialogTemplate)">
+                  Nuevo item
+                  <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+              </button>
+              <button ibmButton="tertiary" class="ml-5 mr-5" size="sm" (click)="guardar()">
+                Crear factura
+                <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+            </button>
+              </div>
+          </div>
+          <div fxFlex="100%" class="p-5" >
+             <div id="grid-factura"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </youpez-sidenav-container>
+  
+
+  <ng-template #dialogTemplate style="background-color: white; width: 800px; height: 700px;">
+    <div id="notificationHolderV" style="position: absolute;z-index:100000"></div>
+    <div class="" style="background-color: white; width: 800px; height: 700px;" [formGroup]="formGroup">
+        <div fxLayout="row wrap" class="p-4">
+            <div fxFlex="100%" class="p-4">
+                <div class="app-input">                          
+                  <ibm-label
+                    [invalidText]="'This field is required or incorrect'"
+                    >
+                    Inventario 
+                    <input
+                      type="text"                      
+                      ibmText
+                      size="md"
+                        [disabled]="true"  
+                    formControlName="inventario" 
+                      [autocomplete]="true">
+                  </ibm-label>
+                </div>
+            </div>
+            <div fxFlex="100%" class="p-4">
+            <ibm-combo-box style="width: 500px;"
+                    [disabled]="false"
+                    [invalid]="false"
+                    [size]="'md'"
+                    [appendInline]="false"
+                    [invalidText]="''"
+                    (selected)="onSelect($event)"
+                    
+                    [label]="'Seleccione el articulo'"
+                    [helperText]="''"
+                    [items]="listarArticulos"
+                    [theme]="'light'">
+                    <ibm-dropdown-list></ibm-dropdown-list>
+                </ibm-combo-box>
+            </div>
+            <div fxFlex="70%"   class="app-form__item p-4">
+                <div class="app-input">                          
+                  <ibm-label
+                    [invalidText]="'This field is required or incorrect'"
+                    >
+                    Cantidad
+                    <input
+                      type="number"                      
+                      ibmText
+                      size="md"
+                      (change)="calcularSubtotal($event)"
+                      formControlName="cantidad"
+                      [autocomplete]="true">
+                  </ibm-label>
+                </div>
+            </div>
+            <div fxFlex="30%"   class="app-form__item p-4">
+                <div class="app-input">                          
+                  <ibm-label
+                    [invalidText]="'This field is required or incorrect'"
+                    >
+                    Precio
+                    <input
+                      type="number"                      
+                      ibmText
+                      size="md"
+                      readonly
+                      formControlName="precio"
+                    [disabled]="true"   
+                      [autocomplete]="true">
+                  </ibm-label>
+                </div>
+            </div>
+            <div fxFlex="70%" class="p-4">
+               
+                </div>
+                <div fxFlex="30%"   class="app-form__item p-4">
+                    <div class="app-input">                          
+                      <ibm-label
+                        [invalidText]="'This field is required or incorrect'"
+                        >
+                        Subtotal
+                        <input
+                          type="number"                      
+                          ibmText
+                          size="md"
+                          readonly
+                          formControlName="subtotal"
+                          [disabled]="true"  
+                          [autocomplete]="true">
+                      </ibm-label>
+                    </div>
+                </div>
+                <div fxFlex="70%" class="p-4">
+                    
+                    </div>
+                    <div fxFlex="30%"   class="app-form__item p-4">
+                        <div class="app-input">                          
+                          <ibm-label
+                            [invalidText]="'This field is required or incorrect'"
+                            >
+                            IVA
+                            <input
+                              type="number"                      
+                              ibmText
+                              size="md"
+                                formControlName="iva"
+                              [disabled]="true" 
+                              readonly     
+                              [autocomplete]="true">
+                          </ibm-label>
+                        </div>
+                    </div>
+                    <div fxFlex="70%" class="p-4">
+                       
+                        </div>
+                        <div fxFlex="30%"   class="app-form__item p-4">
+                            <div class="app-input">                          
+                              <ibm-label
+                                [invalidText]="'This field is required or incorrect'"
+                                >
+                                Total
+                                <input
+                                  type="number"                      
+                                  ibmText
+                                  size="md"
+                                  readonly
+                                    formControlName="total"
+                                    [disabled]="true"
+                                  [autocomplete]="true">
+                              </ibm-label>
+                            </div>
+                        </div>
+            <div fxFlex="100%" class="p-4">
+                <div class="px-4 py-4 flex justify-end app-border-t">
+                    <button (click)="onClose()"
+                            ibmButton="ghost"
+                            size="field"
+                            class="mr-1">
+                            Cerrar ventana
+                      
+                    </button>
+                    <button ibmButton="primary" size="field" [disabled]="desactivarBoton" (click)="agregarLineas()">
+                      Guardar
+                      <svg class="bx--btn__icon" ibmIconSend size="20"></svg>
+                    </button>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </ng-template>

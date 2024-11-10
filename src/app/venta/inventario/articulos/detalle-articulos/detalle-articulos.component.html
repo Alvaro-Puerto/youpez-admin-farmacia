@@ -1,0 +1,97 @@
+<youpez-sidenav-container>
+    <div fxFlex="70%" fxFlex.gt-md="70%">
+      <div class="app-card">
+        <youpez-header>
+          <youpez-header-title>
+            Administracion de articulos 
+          </youpez-header-title> 
+        </youpez-header>
+        <div fxLayout="row wrap p-4 m-5" class="app-card__blocks app-border-t mt-5 pt-5">
+          <div fxFlex="30%"> 
+            <img src="https://walmartgt.vtexassets.com/arquivos/ids/353557/Desinfectante-Multiusos-Marca-Azist-n-Forta-Lavanda-900ml-1-8524.jpg?v=638158199343930000" alt="" srcset="" height="300" width="300">
+          </div>
+          <div fxFlex="70%">
+            <div fxLayout="row wrap ">
+              <div fxFlex="100%" style="margin-bottom: 20px;">
+                <div class="app-productive-heading-02">Nombre del articulo</div>
+                <div class="app-productive-heading-01 mr-2">{{imageDetalle?.nombre}}</div>           
+              </div>
+              <div fxFlex="100%" style="margin-bottom: 20px;">
+                <div class="app-productive-heading-02">Descripcion del articulo</div>
+                <div class="app-productive-heading-01 mr-2">{{imageDetalle?.descripcion}}</div>            
+              </div> 
+              <div fxFlex="50%" style="margin-bottom: 20px;">
+                <div class="app-productive-heading-02">Precio venta del articulo</div>
+                <div class="app-productive-heading-01 mr-2">{{imageDetalle?.precio_venta}}</div>            
+              </div> 
+              <div fxFlex="50%" style="margin-bottom: 20px;">
+                <div class="app-productive-heading-02">Total inventario</div>
+                <div class="app-productive-heading-01 mr-2">{{totalInventario}}</div>            
+              </div>  
+            </div>
+          </div>
+          <div fxFlex="100%" class="p-4 d d-flex flex justify-end app-border-t app-border-b">
+            <button ibmButton="tertiary" size="sm" (click)="nuevaTransaccion()">
+              Nueva entrada de inventario
+              <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+            </button>
+          </div>
+          <div fxFlex="100%" >
+            <div class="app-content app-content--default" >
+              <ibm-tab-header-group
+                [type]="'line'"
+                [followFocus]="true"
+                [cacheActive]="false"
+                [isNavigation]="true">
+                <ibm-tab-header ibmTabHeader [paneReference]="content1" (click)="crearGridBodega()">
+                  Bodegas          
+                </ibm-tab-header>
+                <ibm-tab-header ibmTabHeader [paneReference]="content4" (click)="crearGridTransacciones()">
+                  Transacciones
+                </ibm-tab-header>		
+              </ibm-tab-header-group>
+              <ibm-tab #content1>
+                <div fxLayout="row wrap">
+                  <div fxFlex="100%">
+                    <div class="app-form p-4">
+                      <div class="mt-4 mb-5 flex-1 flex justify-end">                
+                        <button ibmButton="tertiary" size="sm" (click)="exportarBodega()">
+                          Exportar
+                          <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div id="grid-bodega-inventario"></div>  
+                  </div>
+                </div>
+              </ibm-tab>
+              <ibm-tab #content2 >
+                <div class="app-form p-4">
+                  <div class="p-2 flex">               
+                                     
+                  </div>
+                           
+                </div>
+              </ibm-tab>
+              <ibm-tab #content4>
+                <div fxLayout="row wrap">
+                  <div fxFlex="100%">
+                    <div class="app-form p-4">
+                      <div class="mt-4 mb-5 flex-1 flex justify-end">                
+                        <button ibmButton="tertiary" size="sm" (click)="exportarTransacciones()">
+                          Exportar
+                          <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                      </div>               
+                      <div id="grid-transacciones"></div>        
+                      </div>
+                  </div>
+                </div>
+              </ibm-tab> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </youpez-sidenav-container>
+  

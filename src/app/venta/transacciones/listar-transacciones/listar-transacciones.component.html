@@ -1,0 +1,128 @@
+<!--
+<div fxFill fxLayout="column">
+    <youpez-header>
+      <youpez-header-title>
+        Transaccion de inventario
+      </youpez-header-title>
+      <youpez-header-tools>
+      </youpez-header-tools>
+    </youpez-header>
+      <div fxFlex="100%" class="relative" >     
+          <div fxFlex="100%">
+            <youpez-sidenav-container panel="solid" >
+              <div fxLayout="row wrap" class="mt-5">
+              
+              </div>
+              <div fxLayout="row wrap" class="flex w-full justify-center items-center">
+                <div fxFlex="80%">
+                  <div fxFill fxLayout="column" class="app-bg-container relative">
+                    <ibm-tab-header-group class="app-ibm-tab-auto">
+                      <ibm-tab-header>
+                        Ventas disponible
+                      </ibm-tab-header>                      
+                    </ibm-tab-header-group>           
+                    <div class="absolute top-0 right-0">                    
+                      <button ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                        <svg class="bx--btn__icon" ibmIconMinimize size="32"></svg>
+                      </button>
+                    </div>          
+                         
+                    <div fxFlex fxFill class="">
+                      <div fxLayout="row">
+                        <div fxFlex="20%" fxFlex.gt-md="20%">
+                          <div class="app-card app-card--bt-warning">
+                            <div class="app-card__header">
+                              <div class="app-expressive-heading-03 mb-8">Ventas NIO (C$)</div>
+                              <div>
+                                <span class="app-expressive-heading-06 mr-2">{{totalVentas}}</span>
+                                <youpez-ibm-icon iconName="arrowDown" class="app-color-danger"></youpez-ibm-icon>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div fxFlex="40%" *ngIf="indicadorVenta">
+                          <div class="app-card">
+                            <div class="app-card__tool app-card__tool--sign">
+                              
+                            </div>
+                            <div class="app-card__header">
+                              <div class="app-expressive-heading-02">Ventas registradas</div>
+                              
+                            </div>
+                            <youpez-echarts-container >
+                              <youpez-echarts [options]="indicadorVenta" class="app-echarts-component"
+                                           style="height: 250px;"></youpez-echarts>
+                            </youpez-echarts-container>
+                          </div>
+                          
+                        </div>
+                        <div fxFlex="40%" *ngIf="indicadorVendedor">
+                          <div class="app-card">
+                            <div class="app-card__tool app-card__tool--sign">
+                              
+                            </div>
+                            <div class="app-card__header">
+                              <div class="app-expressive-heading-02">Ventas por vendedor</div>
+                              
+                            </div>
+                            <youpez-echarts-container >
+                              <youpez-echarts [options]="indicadorVendedor" class="app-echarts-component"
+                                           style="height: 250px;"></youpez-echarts>
+                            </youpez-echarts-container>
+                          </div>
+                          
+                        </div>
+                       
+                      </div>
+                      <div class="d d-flex flex">
+                        <div class="mr-2 p-4 d d-flex flex" style="width:100px">
+                          <div class="text-left lg:text-right">
+                            <ibm-date-picker
+                              
+                              class="app-inline-block"
+                              [formControl]="fechaInicio"
+                              size="md" range="true">
+                            </ibm-date-picker>
+                          </div>
+                          <button ibmButton="primary" size="sm" (click)="buscar()">                          
+                            <svg class="bx--btn__icon" ibmIconSearch size="20"></svg>
+                          </button>                   
+                        </div>               
+                      </div>       
+                      <div class="p-2 flex">                     
+                        <div class="flex flex-1 justify-end">
+                          <div class="app-ibm-btn-merge mr-1">                        
+                            <button
+                            ibmButton="tertiary" size="sm" size="sm"
+                            (click)="excel()"
+                            class="bx--btn--icon mr-5 ml-5">
+                            Excel
+                            <svg class="bx--btn__icon" ibmIconSettings size="32"></svg>
+                          </button>
+                            <button [disabled]="clienteSeleccionado == null"
+                            ibmButton="danger" size="sm"
+                            (click)="configurarRol()"
+                            class="bx--btn--icon">
+                            Detalles
+                            <svg class="bx--btn__icon" ibmIconSettings size="32"></svg>
+                          </button>
+                          </div>
+                          <button ibmButton="tertiary" size="sm" (click)="crearNuevaVenta()">
+                            Nuevo venta
+                            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                          </button>
+                        </div>
+                      </div>              
+                      <ng-container >
+                        <div id="grid-ventas-listar" style="width: 96%; max-width: 96%;"></div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+            </youpez-sidenav-container>
+          </div>
+      </div>      
+  </div>
+
+-->
